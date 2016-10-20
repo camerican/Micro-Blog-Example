@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+      <li>Test</li>
+      <li>Test2</li>
+      <% if @user %>
+      <li><a href="/profile"><%= current_user.username %></a></li>
+      <li><a href="/logout">Logout</a></li>
+      <% else %>
+      <li><a href="/login">Login</a></li>
+      <% end %>
+    </ul>
+  </nav>
+
+</header>
