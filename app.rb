@@ -1,5 +1,6 @@
 # app.rb
 require 'sinatra'
+require "sinatra/json"
 require 'sinatra/activerecord'
 require 'sqlite3'
 require './models'
@@ -11,7 +12,7 @@ set :database, {adapter: 'sqlite3', database: 'topic.sqlite3'}
 
 
 get '/' do
-  @body_class = " class=\"background\""
+  # @body_class = " class=\"background\""
   erb :home
 end
 
@@ -54,8 +55,34 @@ get '/logout' do
   redirect '/'
 end
 
+get '/buttons' do
+  @buttons = Button.all
+  erb :button
+end
+
+post '/buttons' do
+  button = Button.find_by(name: params[:button])
+  button.points += 1
+  json :success => button.save, :points => button.points
+end
+
 helpers do
   def current_user
     User.find(session[:user_id])
   end
+  def body_class
+    if request.path_info == '/'
+      ' class="background"'
+    else 
+      nil
+    end
+  end
 end
+
+
+
+
+
+
+
+

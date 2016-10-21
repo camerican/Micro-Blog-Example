@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>Topics</title>
   <link rel="stylesheet" type="text/css" href="/css/default.css" />
-  <script src="/js/main.js"></script>
+  <%= '<script src="/js/main.js"></script>' if body_class %>
 </head>
-<body<%= @body_class %>>
+<body<%= body_class %>>
   <%= erb :menu %>
   <main>
   <%= yield %>

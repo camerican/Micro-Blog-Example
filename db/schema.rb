@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019194710) do
+ActiveRecord::Schema.define(version: 20161021200915) do
+
+  create_table "buttons", force: :cascade do |t|
+    t.integer  "points"
+    t.string   "name"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "topic_id"

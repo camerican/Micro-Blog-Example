@@ -12,3 +12,6 @@ comment1 = Comment.create( topic_id: topic2.id, user_id: user3.id, body: 'Roast 
 comment1_1 = Comment.create( topic_id: topic2.id, user_id: user1.id, parent: comment1, body: 'How rude' )
 comment2 = Comment.create( topic_id: topic1.id, user_id: user1.id, body: 'This is a great election cycle')
 comment2_2 = Comment.create( topic_id: topic1.id, user_id: user3.id, parent: comment2, body: 'I respectfully disagree')
+
+button1 = Button.create( name: "red", points: 0 )
+button2 = Button.create( name: "blue", points: 0)

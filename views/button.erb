@@ -1,0 +1,27 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  btns = document.querySelectorAll(".button");
+  for( let i=0; i<btns.length; i++ ) {
+    btns[i].addEventListener("click",function(event){
+      // let xhr = new XMLHttpRequest();
+      // xhr.open('GET', '/buttons');
+      // xhr.send()
+      $.ajax({
+        url: '/buttons',
+        method: 'POST',
+        data: {
+          button: event.target.getAttribute('data-value')
+        },
+        success: function(response) {
+          event.target.innerText = response.points
+        }
+      })
+    });
+  }
+});
+</script>
+Hello
+<% @buttons.each do |button| %>
+  <div data-value="<%= button.name %>" class="button" style="background-color: <%= button.name %>"></div>
+<% end %>
