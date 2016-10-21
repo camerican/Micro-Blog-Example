@@ -11,6 +11,7 @@ set :database, {adapter: 'sqlite3', database: 'topic.sqlite3'}
 
 
 get '/' do
+  @body_class = " class=\"background\""
   erb :home
 end
 
@@ -37,6 +38,15 @@ post '/login' do
     redirect '/'
   end
   erb :home
+end
+
+get '/tree' do 
+  # to do: define our image @img
+  # 1) hard code image names into array and select one
+  # @img = "/img/slideshow/" + ['tree1.jpg','goat_tree.jpeg','another_tree.jpeg'].sample
+  # 2) look-up files & select one
+  @img = Dir.new('./public/img/slideshow').select{|a| a[0] != '.'}.sample
+  erb :gallery
 end
 
 get '/logout' do

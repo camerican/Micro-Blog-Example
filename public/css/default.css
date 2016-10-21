@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  transition: background-image 1s;
 }
 header {
   width:100%;
@@ -32,3 +33,22 @@ header nav li{
 header nav li:nth-child(n+2) {
   border-left: 1px solid #000;
 }
+/*Background Image*/
+body.background {
+  background-size: cover;
+}
+.background1 {
+  background-image: url(../img/background/drinks1.jpg);
+}
+.background2 {
+background-image: url(../img/background/drinks2.jpg);
+}
+.background3 {
+  background-image: url(../img/background/cocktails.jpg);
+}
+
+
+
+
+
+
